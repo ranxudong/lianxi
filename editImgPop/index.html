@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="./HNreset.css"/>
+        <link rel="stylesheet" type="text/css" href="./cutout.css" />
+    </head>
+    <body>
+    <div id="mask">
+        <div class="mask-bg">
+            <div class="list">
+                <!-- 提示编辑区自定义背景图 -->
+                <div class="pop-up-box pop-up-removeImgAlert">
+                    <div class="pop-head">
+                        <span>火牛提示</span>
+                        <a class="close"></a>
+                    </div>
+                    <div class="pop-body">
+                        <div class="hint hint-fail"><div class="hint-con"><span>确定要删除此图片？</span></div></div>
+                    </div>
+                    <div class="pop-foot button-list">
+                        <div class="for-align">
+                            <a class="button-m cancel"><font>取消</font></a>
+                            <a class="button-m button-m-blue cancel save"><font>确定</font></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 编辑图片 -->
+                <div class="pop-up-box pop-picedit user-select-none">
+                    <div class="pop-head">
+                        <span>编辑图片</span>
+                        <a class="close"></a>
+                    </div>
+                    <div class="pop-body">
+                        <div class="pop_left">
+                            <div class="fl">
+                                <div class="editbtn disabled prev" data-type="prev">上一步</div>
+                                <div class="editbtn disabled next" data-type="next">下一步</div>
+                                <div class="editbtn disabled retry" data-type="retry">重做</div>
+                            </div>
+                            <div class="fr">
+                                <div class="narrow scaleBtn" data-type="cut"></div>
+                                <div class="percent"><span>100</span>%</div>
+                                <div class="enlarge scaleBtn" data-type="add"></div>
+                            </div>
+                            <div class="fl picbox">
+                                <!-- 居中显示的容器 -->
+                                <div class="boxMain">
+                                    <!-- 背景 -->
+                                    <div class="mybg toming">
+                                        <!-- 擦除轨迹反选 -->
+                                        <canvas data-type="LineBack"></canvas>
+                                        <!-- 擦除轨迹 -->
+                                        <canvas data-type="Line"></canvas>
+                                        <!-- 人像 -->
+                                        <canvas data-type="People"></canvas>
+                                        <!-- 原图蒙板 -->
+                                        <canvas data-type="OldBack"></canvas>
+                                        <!-- 原图 -->
+                                        <canvas data-type="Old"></canvas>  
+                                        <!-- 抠图层 -->
+                                        <div class="pngpic">
+                                            <!-- 背景 -->
+                                            <canvas data-type="Bg"></canvas>
+                                            <!-- 鼠标 -->
+                                            <canvas data-type="Mouse"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pop_right fl">
+                            <div class="active-tab">
+                                <a class="tab selected">编辑</a>
+                                <a class="tab">换背景</a>
+                            </div>
+                            <div class="tabBlock tab0">
+                                <a class="button-l button-l-gray-b mouse-btn caca select" data-type="擦除">擦除</a>
+                                <a class="button-l button-l-gray-b mouse-btn restore" data-type="还原">还原</a>
+                                <div class="pensize">
+                                    <span class="fl">画笔大小</span>
+                                    <div class="penlenz"><div class="penlen"><div class="pencir"></div></div></div>
+                                    <span class="psize">25px</span>
+                                </div>
+                            </div>
+                            <div class="tabBlock tab1">
+                                <div class="Infotip Infotip-mid Infotip-tips">
+                                    <div class="tip-con">请上传jpg/png格式，3M以内 的图片文件</div>
+                                </div>
+                                <div class="picset">
+                                    <span>图片设置: </span>
+                                    <div class="select big-select" style="width:180px">
+                                        <input class="text" type="text" value="请选择"/>
+                                        <a class="arrow"><font></font></a>
+                                        <div class="option">
+                                            <span data-type="center" class="selected">自适应居中</span>
+                                            <span data-type="repeat" class>平铺图片</span>
+                                            <span data-type="repeat-x" class>水平平铺</span>
+                                            <span data-type="repeat-y" class>垂直平铺</span>
+                                            <span data-type="contain" class>填充背景</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul class="fl bgList">
+                                    <li class="transparent select" data-type="opacity"><div class="markbg">透明</div></li>
+                                    <li class="white" data-type="ffffff"></li>
+                                    <li data-type="img"><i class="close"></i><img src="https://gd4.alicdn.com/imgextra/i4/3401463658/O1CN01PT4nPo1ctPO3uGkq8_!!3401463658.jpg" alt=""> </li>
+                                    <li class="zdy" data-type="add"><div class="markbg"><em>+</em>自定义</div></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <input type="file" accept="image/*" id="from-file" class="from-file" size="1" />
+                    </div>
+                    <div class="pop-foot button-list" style="display: block;">
+                        <div class="for-align">
+                            <a class="button-m button-m-gray cancel">取消</a>
+                            <a class="button-m button-m-blue save">下载图片</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg"></div>
+        </div>
+    </div>
+    <div id="fixed">
+        <div id="main">
+            <div id="body">
+                <div class="matting">
+                    <div class="drawBan drawBan1">
+                        <img src="./1_img.jpg" crossOrigin="Anonymous" alt="" />
+                        <span class="czBanleft">原图</span>
+                        <p>请选择商品图或上传图片</p>
+                    </div>
+                    <div class="czBanBot">
+                        <a class="button-large button-large-blue">选择商品图</a>
+                        <a class="button-large button-large-blue">上传图片</a>
+                    </div>
+                </div>
+                <div class="matting">
+                    <div class="drawBan drawBan2">
+                        <img src="./1_trans.png" alt="" />
+                        <span class="czBanleft">效果</span>
+                        <p></p>
+                    </div>
+                    <div class="czBanBot">
+                        <a class="button-large button-large-blue setedit popEdit" data-type="setedit">编辑</a>
+                        <a class="button-large button-large-blue setbg popEdit" data-type="setbg">换背景</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="./hn_ui.js"></script>
+    <script type="text/javascript" src="./editImg.js"></script>
+    <script type="text/javascript" src="./cutout.js"></script>
+    
+    </body>
+</html>

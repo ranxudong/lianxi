@@ -1,0 +1,462 @@
+#body{
+    display: inline-block;
+    text-align: center;
+}
+.matting {
+    padding: 30px 10px;
+    /* width: 50%; */
+    display: inline-block;
+    box-sizing: border-box;
+}
+.drawBan {
+    width: 100%;
+    background:rgba(241,241,247,1);
+    margin-bottom: 24px;
+    position: relative;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+}
+.drawBan p {
+    color: #444;
+    text-align: center;
+    line-height: 20px;
+    top: 50%;
+    position: absolute;
+    margin-top: -10px;
+    width: 100%;
+}
+.drawBan2 p {
+    font-size: 16px;
+}
+.drawBan2 p .loading {
+    background-size: 100%;
+    width: 20px;
+    height: 20px;
+    vertical-align: top;
+}
+.drawBan img {
+    margin: auto; 
+    z-index: 1;
+}
+.drawBan2 img {
+    display: inline-block;
+    background-image: -webkit-linear-gradient(bottom left, #ccc 25%, transparent 0, transparent 75%, #ccc 0, #ccc), -webkit-linear-gradient(bottom left, #ccc 25%, transparent 0, transparent 75%, #ccc 0, #ccc);
+    background-image: linear-gradient(to top right, #ccc 25%, transparent 0, transparent 75%, #ccc 0, #ccc), linear-gradient(to top right, #ccc 25%, transparent 0, transparent 75%, #ccc 0, #ccc);
+    background-position: 0 0, 5px 5px;
+    background-size: 10px 10px;
+}
+.czBanBot {
+    text-align: center;
+}
+.czBanBot a {
+    margin: 0 4px;
+    float: none;
+    display: inline-block;
+}
+.czBanleft {
+    width:52px;
+    height:30px;
+    background:rgba(0,0,0,.5);
+    position: absolute;
+    line-height: 30px;
+    color: #fff;
+    text-align: center;
+    z-index: 2;
+}
+.pop-set-baby {
+    width: 800px;
+    height: 636px;
+}
+.pop-set-baby .search {
+    margin-left: 10px;
+}
+.pop-set-baby .pop_cont {
+    width: 770px;
+}
+.pop-up-box .pop_cont .autoScroll {
+    height: 397px;
+    border-bottom: 1px solid #F0F0F0;
+    overflow-y: hidden;
+}
+.pop-up-box .pop_cont .goods {
+    width: 321px;
+    border-right: 1px solid #F0F0F0;
+    height: 387px;
+    padding: 5px 0;
+    float: left;
+    overflow: auto;
+}
+.pop-up-box .pop_cont .good {
+    padding: 5px 15px;
+    border: 0;
+    float: left;
+    cursor: pointer;
+    width: 292px;
+}
+.pop-up-box .pop_cont .good.select {
+    background: #F7F9FF;
+}
+.pop-up-box .pop_cont .good.select:before {
+    width:3px;
+    height:90px;
+    background:rgba(66,118,242,1);
+    content: "";
+    position: absolute;
+    left: 0;
+    margin-top: -5px;
+}
+.pop-up-box .pop_cont a.tit {
+    line-height: 20px;
+    color: #444;
+}
+.pop-up-box .pop_cont p.code {
+    line-height: 20px;
+    font-size: 12px;
+    color: #999;
+}
+.pop-up-box .pop_cont .pic {
+    width: 80px;
+    height: 80px;
+    background: #f8f8f8;
+    float: left;
+    margin-right: 8px;
+}
+.pop-up-box .pop_cont .main_goods,
+.pop-up-box .pop_cont .attribute_goods {
+    width: 202px;
+    border-right: 1px solid #F0F0F0;
+    float: left;
+    height: 387px;
+    padding: 5px 0 5px 21px;
+    overflow: auto;
+} 
+.pop-up-box .pop_cont .attribute_goods {
+    border: 0
+}
+.pop-up-box .pop_cont .main_goods .newNotFound,
+.pop-up-box .pop_cont .attribute_goods .newNotFound {
+    margin: 0 0 0 -32px;
+    overflow: hidden;
+}
+.pop-up-box .pop_cont .img_ {
+    width: 80px;
+    height: 80px;
+    background: #f8f8f8;
+    margin: 5px;
+    float: left;
+    border: 0;
+    cursor: pointer;
+}
+.pop-up-box .pop_cont .img_:hover:before {
+    content: "";
+    position: absolute;
+    border: 1px solid #4276f2;
+    width: 78px;
+    height: 78px;
+}
+.pop-up-box .pop_cont .img_.select:before {
+    content: "";
+    position: absolute;
+    border: 2px solid #4276f2;
+    width: 76px;
+    height: 76px;
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.mCSB_scrollTools {
+    width: 6px;
+}
+.mCSB_draggerRail {
+    display: none;
+}
+.mCSB_container {
+    width: 100%;
+}
+
+/* 编辑图片 */
+.pop-picedit {
+    width: 800px;
+    height: 644px;
+    max-height: none;
+}
+.pop-picedit .pop-body {
+    max-height: none;
+}
+.pop-picedit .pop_left{
+    width: 480px;
+    float: left;
+    margin-left: 22px;
+}
+.pop-picedit .editbtn{
+    float: left;
+    line-height: 20px;
+    margin-right: 22px;
+    margin-bottom: 16px;
+    opacity: .8;
+    cursor: pointer;
+}
+.pop-picedit .editbtn.prev{
+    background: url(https://newhnproduct.oss-cn-zhangjiakou.aliyuncs.com/pinduoduo/prev.png) 0 center no-repeat;
+    padding-left: 24px;
+}
+.pop-picedit .editbtn.next{
+    background: url(https://newhnproduct.oss-cn-zhangjiakou.aliyuncs.com/pinduoduo/next.png) 0 center no-repeat;
+    padding-left: 24px;
+}
+.pop-picedit .editbtn.retry{
+    background: url(https://newhnproduct.oss-cn-zhangjiakou.aliyuncs.com/pinduoduo/retry.png) 0 center no-repeat;
+    padding-left: 24px;
+}
+.pop-picedit .editbtn:hover{
+    opacity: 1;
+}
+.pop-picedit .editbtn.disabled{
+    opacity: .26;
+    cursor: inherit;
+}
+.pop-picedit .narrow, .pop-picedit .enlarge {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #444;
+    margin-top: 3px;
+    line-height: 12px;
+    text-align: center;
+    float: left;
+    cursor: pointer;
+}
+.pop-picedit .narrow.disabled, .pop-picedit .enlarge.disabled{
+    opacity: .26;
+    cursor: inherit;
+}
+.pop-picedit .narrow:after {
+    content: '-';
+    color: #fff;
+    font-size: 20px;
+}
+.pop-picedit .enlarge:after {
+    content: '+';
+    color: #fff;
+    font-size: 17px;
+}
+.pop-picedit .percent {
+    width: 56px;
+    line-height: 22px;
+    color: #444;
+    float: left;
+    text-align: center;
+}
+.pop-picedit .picbox {
+    width: 480px;
+    height: 480px;
+    overflow: auto;
+}
+.pop-picedit .boxMain {
+    position: relative;
+}
+.pop-picedit .pop_right{
+    width: 252px;
+    margin-left: 24px;
+}
+.pop-picedit .active-tab { 
+    height: 34px;
+    line-height: 34px;
+    margin-top: -15px;
+    position: absolute;
+}
+.pop-picedit .active-tab a.tab { 
+    width: 46px;
+    height: 32px;
+    line-height: 32px;
+    margin: 0 40px;
+}
+.pop-picedit .Infotip {
+    margin-top: 36px;
+    color: #F25500;
+    float: left;
+}
+.pop-picedit .Infotip.Infotip-tips:before {
+    color: #F25500;
+}
+.pop-picedit .picset {
+    margin: 16px 0;
+    line-height: 36px;
+    float: left;
+}
+.pop-picedit .picset > span {
+    width: 70px;
+    float: left;
+}
+.pop-picedit li {
+    width:78px;
+    height:78px;
+    background:rgba(255,255,255,1);
+    border:1px solid rgba(240,240,240,1);
+    border-radius:2px;
+    float: left;
+    margin: 0 6px 6px 0;
+    cursor: pointer;
+    position: relative;
+}
+.pop-picedit li:nth-child(3n) {
+    margin-right: 0;
+}
+.pop-picedit li:hover, .pop-picedit li.select {
+    border-color: #4276F2
+}
+.pop-picedit li .markbg {
+    display: none;
+}
+.pop-picedit li.transparent {
+    background-image: -webkit-linear-gradient(bottom left, #ccc 25%, transparent 0, transparent 75%, #ccc 0, #ccc), -webkit-linear-gradient(bottom left, #ccc 25%, transparent 0, transparent 75%, #ccc 0, #ccc);
+    background-image: linear-gradient(to top right, #ccc 25%, transparent 0, transparent 75%, #ccc 0, #ccc), linear-gradient(to top right, #ccc 25%, transparent 0, transparent 75%, #ccc 0, #ccc);
+    background-position: 0 0, 8px 8px;
+    background-size: 16px 16px;
+}
+.pop-picedit li:hover .markbg {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 78px;
+    background: rgba(255, 255, 255, .2);
+}
+.pop-picedit li:hover .close {
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    font-style: normal;
+    font-size: 17px;
+    right: 4px;
+    top: 4px;
+    z-index: 9;
+}
+.pop-picedit li:hover .close:after {
+    content: '\e64d';
+    font-family: 'iconfont';
+    opacity: .6;
+}
+.pop-picedit li:hover .close:hover:after {
+    opacity: 1;
+    color: #4276F2;
+}
+.pop-picedit li.zdy .markbg {
+    line-height: 20px;
+    display: block;
+    text-align: center;
+}
+.pop-picedit li.zdy .markbg em {
+    display: block;
+    line-height: 30px;
+    font-size: 32px;
+    margin-top: 11px;
+}
+.pop-picedit .pop_right .tab1 {
+    display: none;
+}
+.pop-picedit .pop_right .button-l{
+    width: 50px;
+    margin-top: 36px;
+    margin-bottom: 26px;
+}
+.pop-picedit .pop_right .caca{
+    margin: 36px -1px 0 16px;
+}
+.pop-picedit .pop_right .button-l.select {
+    color: #4276F2;
+    border-color: #4276F2;
+    z-index: 1;
+}
+.pop-picedit .pop_right .pensize {
+    float: left;
+    display: block;
+    margin-left: 16px;
+    line-height: 16px;
+}
+.pop-picedit .pop_right .pensize .penlenz {
+    width:100px;
+    height:6px;
+    background:rgba(240,240,240,1);
+    border-radius:3px;
+    float: left;
+    margin: 5px 10px 0 15px;
+}
+.pop-picedit .pop_right .pensize .penlen {
+    width:50px;
+    height:6px;
+    background: #4276F2;
+    float: left;
+    border-radius:3px;
+    position: relative;
+}   
+.pop-picedit .pop_right .pensize .penlen .pencir {
+    width:14px;
+    height:14px;
+    background:rgba(255,255,255,1);
+    border:1px solid rgba(204,204,204,1);
+    border-radius:50%;
+    position: absolute;
+    right: -8px;
+    top: -5px;
+    cursor: pointer;
+}
+.pop-picedit .pop_right .pensize .psize {
+    font-size: 12px;
+    margin-left: 10px;
+}
+.pop-picedit .mybg, .pop-picedit .pngpic {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+.pop-picedit .mybg > canvas {
+    visibility: hidden;
+}
+.pop-picedit .oldpic img, .pop-picedit .pngpic img, .pop-picedit li img{
+    margin: 50% auto;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+}
+.pop-picedit .pngpic {
+    background-image: -webkit-linear-gradient(bottom left, #ccc 25%, transparent 0, transparent 75%, #ccc 0, #ccc), -webkit-linear-gradient(bottom left, #ccc 25%, transparent 0, transparent 75%, #ccc 0, #ccc);
+    background-image: linear-gradient(to top right, #ccc 25%, transparent 0, transparent 75%, #ccc 0, #ccc), linear-gradient(to top right, #ccc 25%, transparent 0, transparent 75%, #ccc 0, #ccc);
+    background-position: 0 0, 8px 8px;
+    background-size: 16px 16px;
+}
+.pop-picedit canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/* 滚动条样式 */
+.pop-picedit .mCSB_scrollTools.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar {
+    height: 6px;
+}
+.pop-picedit .mCSB_container_wrapper {
+    margin-right: 0;
+    margin-bottom: 0;
+}
+.pop-picedit .mCSB_dragger .mCSB_dragger_bar, .pop-picedit .mCSB_scrollTools_vertical {
+    opacity: 1;
+}
+.pop-picedit .mCSB_scrollTools.mCSB_scrollTools_horizontal {
+    height: 15px;
+    opacity: 1;
+}
+
+.from-file {
+    position: absolute;
+    top: -1000px;
+}

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            canvas {border: 1px solid #ccc;}
+            #load {display: none; margin-top: 50px;}
+            .flex * {padding:0;margin:0;}
+            .flex {display: flex;margin-top: 50px;font-size: 0;}
+            .flex > div:first-child { margin-right: 20px; position: relative; }
+            .flex > div:nth-child(2) { background: url(https://img.alicdn.com/imgextra/i2/281509299/TB2A5VCihHI8KJjy1zbXXaxdpXa-281509299.png);background-size: 100% 100%;}
+            #lcan2 { position: absolute; top: 0; left: 0; cursor: url(cursor_blue.png) 4 4 , auto; }
+            #lcan2.qc {cursor: url(cursor_red.png) 4 4 , auto; }
+        </style>
+    </head>
+    <body>
+        <div>
+            <!-- https://img.alicdn.com/bao/uploaded/i1/199138789/TB1G6Rko0bJ8KJjy1zjXXaqapXa_!!0-item_pic.jpg -->
+            <!-- https://img.alicdn.com/bao/uploaded/i4/199138789/TB1OZWLXQSWBuNjSszdXXbeSpXa_!!0-item_pic.jpg -->
+            <input id="imgSrc" type="text" value="https://img.alicdn.com/bao/uploaded/i1/199138789/TB1G6Rko0bJ8KJjy1zjXXaqapXa_!!0-item_pic.jpg" />
+            <button id="bl">保留</button>
+            <button id="qc">去除</button>
+            <button id="cs">生成</button>
+            <span id="load">。。。。。。。。。。。。。。。。。。绘制中。。。。。。。。。。。。。。。。。。</span>
+        </div>
+        <div class="flex">
+            <div><canvas id="lcan"></canvas><canvas id="lcan2"></canvas></div>
+            <div><canvas id="rcan"></canvas></div>
+        </div>
+    </body>
+    <script type="text/javascript">
+    
+        function KouTu() {
+            this.load = document.querySelector('#load');
+            this.lcan = document.querySelector('#lcan');
+            this.lctx = lcan.getContext('2d');
+            this.lcan2 = document.querySelector('#lcan2');
+            this.lctx2 = lcan2.getContext('2d');
+            this.rcan = document.querySelector('#rcan');
+            this.rctx = rcan.getContext('2d');
+            this.bl = document.querySelector('#bl');
+            this.qc = document.querySelector('#qc');
+            this.cs = document.querySelector('#cs');
+            this.imgInput = document.querySelector('#imgSrc');
+        }
+
+        KouTu.prototype.init = function (_obj) {
+            var _obj = _obj || {};
+            var _this = this;            
+
+            this.cw = this.lcan.width = this.lcan2.width = this.rcan.width = _obj.width || 400;
+            this.ch = this.lcan.height = this.lcan2.height = this.rcan.height = _obj.height || 400;
+            this.lineWidth = _obj.lineWidth || 10;
+            this.type = 'bl';
+            this.canRect = this.lcan.getBoundingClientRect();
+            this.pointArr = [];
+
+
+            _this.lctx2.lineCap = "round";
+            _this.lctx2.lineJoin= "round";
+
+            this.blStyle = {
+                lineColor: 'rgba(0, 200, 0, 0.7)',
+                fillStyle: 'rgba(0, 200, 0, 0)',
+            }
+
+            this.qcStyle = {
+                lineColor: 'rgba(200, 0, 0, 0.7)',
+                fillStyle: 'rgba(200, 0, 0, 0)',
+            }
+
+            this.load.style.display = 'inline';
+
+            this.limg = new Image();
+            this.limg.setAttribute('crossOrigin','anonymous');
+            this.limg.src = this.imgInput.value;
+
+            this.limg.onload = function () {
+                _this.imgW = _this.limg.naturalWidth;
+                _this.imgH = _this.limg.naturalHeight;
+                _this.zoom = (_this.cw/_this.imgW < _this.ch/_this.imgH ? _this.cw/_this.imgW : _this.ch/_this.imgH).toFixed(3);
+                _this.drawImg();
+                _this.load.style.display = 'none';
+            }
+            
+            this.bl.addEventListener('click',function () {
+                _this.type = 'bl';
+                _this.lcan2.className = '';
+            },false);
+            this.qc.addEventListener('click',function () {
+                _this.type = 'qc';
+                _this.lcan2.className = 'qc';
+            },false);
+
+            this.cs.addEventListener('click',function () {
+                _this.save();
+            },false);
+
+
+            this.lcan2.addEventListener('mousedown', function (e) {
+                _this.touchDown = true;
+                _this.lineXY = {
+                    point: [],
+                    type: _this.type, 
+                }
+                _this.pointArr.push(_this.lineXY);
+                _this.xrArrPush(e);
+            } , false);
+
+            document.addEventListener('mousemove', function (e) {
+                if (_this.touchDown) {
+                    _this.xrArrPush(e);     
+                }
+            } , false);
+
+            document.addEventListener('mouseup', function (e) {
+                _this.touchDown = false;
+                _this.save();
+            } , false);
+
+            this.lcan2.addEventListener('mouseover', function (e) {
+                
+            } , false);
+        }
+
+        KouTu.prototype.drawImg = function () {
+            this.lctx.drawImage(this.limg,(this.cw-this.imgW*this.zoom)/2,(this.ch-this.imgH*this.zoom)/2,this.imgW*this.zoom,this.imgH*this.zoom);
+            //this.lctx.drawImage(this.limg,0,0,this.imgW,this.imgH);
+        } 
+
+        KouTu.prototype.xrArrPush = function (e) {
+            var _this = this;
+            var lx = e.pageX - this.canRect.left;
+            var ly = e.pageY - this.canRect.top;
+
+            _this.lineXY.point.push({x:lx,y:ly});
+
+            _this.lctx2.clearRect(0, 0, _this.cw, _this.ch);
+            //console.log(_this.pointArr);
+
+            _this.pointArr.forEach(function (ele) {
+                _this.drawLine(ele);
+            });
+        }
+
+        KouTu.prototype.drawLine = function (_arr) {
+            if (!_arr || _arr.length == 0) {return;};
+            var _this = this;
+            //if (_this.lx < 0 || _this.lx > _this.cw || _this.ly < 0 || _this.ly > _this.ch) {return};
+            
+            
+            // _this.lcan2.width = _this.cw;
+            // _this.lcan2.height = _this.ch;
+            //_this.lctx2.globalCompositeOperation = 'destination-atop';
+
+
+            _this.lctx2.save();
+
+            _this.lctx2.beginPath();
+            _arr.point.forEach(function (ele,item) {
+                // if (item<1) {
+                //     _this.lctx2.moveTo(ele.x,ele.y);
+                // }else {
+                //     _this.lctx2.lineTo(ele.x,ele.y);
+                // }
+                _this.lctx2.lineTo(ele.x,ele.y);
+            });
+
+            _this.lctx2.strokeStyle = _this[_arr.type + 'Style'].lineColor;
+            _this.lctx2.lineWidth = _this.lineWidth;
+
+            _this.lctx2.stroke();
+            _this.lctx2.restore();
+        }
+
+        KouTu.prototype.drawMove = function () {    
+        }
+
+        KouTu.prototype.save = function () {
+            this.imageData = this.lctx.getImageData(0,0,this.cw,this.ch);
+            this.imageData2 = this.lctx.getImageData(0,0,this.cw,this.ch);
+            this.can2Data = this.lctx2.getImageData(0,0,this.cw,this.ch);
+    
+            this.kouObj = {};
+
+            for (var i = 0,l = this.can2Data.data.length; i < l; i+=4 ) {
+                var str = this.can2Data.data[i] + '_' + this.can2Data.data[i+1] + '_' + this.can2Data.data[i+2];
+                this.kouObj[str] = this.kouObj[str] || [];
+                if (str != '0_0_0') {
+                    this.kouObj[str].push(i);
+                };
+            }
+            
+            this.showColorObj = {};
+            for (var key in this.kouObj) {
+                var arr = this.kouObj[key];
+                for (var n = 0, m = arr.length; n < m; n++) {
+                    var o = arr[n];
+                    var r = this.imageData.data[o];
+                    var g = this.imageData.data[o+1];
+                    var b = this.imageData.data[o+2];
+                    var str = r+'_'+g+'_'+b;
+                    this.showColorObj[str] = o;
+                    //this.showColorArr.push([r,g,b]);
+                }
+            }
+
+
+            this.showColorArr = [];
+            for (var key in this.showColorObj) {
+                this.showColorArr.push(key.split('_'));
+            }
+            
+            var show_le = this.showColorArr.length;
+            
+            for (var i = 0, l = this.imageData.data.length; i < l; i+=4 ) {
+                var r = this.imageData.data[i];
+                var g = this.imageData.data[i+1];
+                var b = this.imageData.data[i+2];
+                var str = r + '_' + g + '_' + b;
+                
+                var k = 30;
+
+                if (true) {
+                    //去除
+                    for (var n = 0; n < show_le; n++ ) {
+                        var ele = this.showColorArr[n];
+                        if ( (ele[0] >= (r - 0.2126 * k) && ele[0] <= (r + 0.2126 * k) && ele[1] >= (g - 0.7152 * k)  && ele[1] <= (g + 0.7152 * k) && ele[2] >= (b - 0.0722 * k) && ele[2] <= (b + 0.0722 * k)) ) {
+                            this.imageData.data[i+3] = 0;
+                            break;   
+                        }
+                    }
+                } else {
+                    //保留
+                    var blean = false;
+                    for (var n = 0; n < show_le; n++ ) {
+                        var ele = this.showColorArr[n];
+
+                        // (0.2126 * r + 0.7152 * g + 0.0722 * b)
+
+                        //保留
+                        if (ele[0] >= (r - 0.2126 * k) && ele[0] <= (r + 0.2126 * k) && ele[1] >= (g - 0.7152 * k)  && ele[1] <= (g + 0.7152 * k) && ele[2] >= (b - 0.0722 * k) && ele[2] <= (b + 0.0722 * k)) {
+                            blean = true;
+                            break;
+                        }
+                    }
+                    
+                    //保留的代码
+                    if (!blean) {
+                        this.imageData.data[i+3] = 0;
+                    };
+                }
+
+            }
+
+            this.rctx.clearRect(0,0,this.cw,this.ch);
+    
+
+            //console.log('结果',this.kouObj,this.showColorObj,this.showColorArr,show_le);
+            console.log('111',this.imageData2,this.showColorArr);
+            this.rctx.putImageData(this.imageData,0,0);
+        }
+
+        var cj = new KouTu();
+
+        cj.init();
+
+    </script>
+
+<!-- 
+1.canvas绘图有锯齿时要 clearReact() 清处画布从新画 
+
+-->
+
+</html>
