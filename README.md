@@ -28,7 +28,7 @@ http://localhost:8000/webpack-dev-server/
 打包代码：npm run dist
 
 
-在线访问地址：https://ranxudong.github.io/lianxi/gallery-by-react/
+在线访问地址：https://ranxudong.github.io/lianxi/gallery-by-react/dist/
 
 //推送代码可以通过在线地址访问了
 //git subtree push --prefix=dist origin gh-pages
