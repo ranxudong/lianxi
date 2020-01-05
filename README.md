@@ -1,6 +1,21 @@
 # lianxi
 练习的dome
 
+
+# kouTu
+一个canvas抠图的dome，。。。效果很差
+
+//在线地址
+https://ranxudong.github.io/lianxi/kouTu/
+
+
+# editImgPop
+canvas对图片的二次处理，换背景，擦除背景
+
+//在线地址
+https://ranxudong.github.io/lianxi/editImgPop/
+
+
 # canvas_LoveFish
 一个canvas小游戏
 跟着慕课网视频教程做的
