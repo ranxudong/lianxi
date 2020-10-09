@@ -1,0 +1,325 @@
+@charset "UTF-8";
+* {
+    box-sizing: border-box;
+}
+body,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ol,
+li,
+ul,
+pre,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+    font-family: 'Microsoft YaHei', '微软雅黑', '苹方';
+}
+
+body {
+    font-size: 14px;
+    color: #444444;
+}
+
+address,
+cite,
+dfn,
+em,
+var {
+    font-style: normal;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+q:before,
+q:after {
+    content: '';
+}
+
+legend {
+    color: #000;
+}
+
+fieldset,
+img {
+    border: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font-size: 14px;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    font-size: 12px;
+    color: #ccc;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    font-size: 12px;
+}
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    font-size: 12px;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    font-size: 12px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+html {
+    overflow-y: scroll;
+}
+a:focus,
+input,
+textarea,
+button {
+    outline: none;
+}
+
+input,
+textarea {
+    color: #444;
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+}
+
+textarea {
+    resize: none;
+}
+
+input.placeholder,
+textarea.placeholder {
+    color: #ccc;
+}
+
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: '';
+}
+
+.clearfix:after {
+    clear: both;
+    overflow: hidden;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.clear {
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    clear: both;
+    overflow: hidden;
+    height: 0;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.hide {
+    display: none;
+}
+
+.text-center {
+    text-align: center;
+}
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+.inline-block {
+    display: inline-block;
+}
+
+.div-block {
+    display: block;
+}
+
+.relative {
+    position: relative;
+}
+
+.zindexAuto {
+    z-index: auto !important;
+}
+
+.fontB {
+    font-weight: bold;
+}
+
+.black_color {
+    color: #444444;
+}
+
+.font-nowrap {
+    white-space: nowrap;
+}
+
+.a {
+    cursor: pointer;
+}
+.a:hover {
+  color: #4276F2;
+}
+
+button,
+input,
+textarea {
+    border: 1px solid;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #4276F2;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+img {
+    display: block;
+}
+
+.hv100 {
+    height: 100%;
+}
+
+.user-select-none {
+    user-select: none;
+}
+
+/* 中间内容区域 贴边 */
+.main-padding-0 {
+    margin-top: -25px;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+._padding_0 {
+    padding: 0;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+/*** 弹性盒子 --s ***/
+.flex {
+    display: flex;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-start {
+    align-items: flex-start;
+}
+
+.items-end {
+    align-items: flex-end;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-1-column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* 布局样式 ---------------s */
+.Page {
+  display: flex;
+  height: 100vh;
+}
+
+/* 布局样式 ---------------e */
